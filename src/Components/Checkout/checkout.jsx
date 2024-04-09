@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import logo from '../HeroSection/LOGO1.png'
 import './checkout.css'
 import { Link } from 'react-router-dom'
@@ -8,19 +8,13 @@ import { FiUser } from "react-icons/fi";
 import visa from '../Checkout/visacard.png'
 import master from '../Checkout/Mastercardcard.png'
 import discover from '../Checkout/discovercard.png'
-// import bag from '../Checkout/bag1.png'
-import Products from  '../Products/Products'
+import bag from '../Checkout/bag1.png'
 
 
 
 
 export default function Checkout (){
-    const [selectedProductImage, setSelectedProductImage] = useState(null);
 
-    const handleproductSelection = (image) => {
-      setSelectedProductImage(image);
-    };
-  
 
     return (
         <div className='contentcontainer'  style={{ padding: 30 }}>
@@ -37,9 +31,9 @@ export default function Checkout (){
         <Link to="/">
           <img src={logo} alt='' id='logo' className='w-10 h-10' />
         </Link>
-          <h4 className='text-white font-light'>PRODUCTS</h4>
-          <h4 className='text-white font-light'>ABOUT</h4>
-          <h4 className='text-white font-light'>CONTACT US</h4>
+          <h4 className='text-white font-body font-light'>PRODUCTS</h4>
+          <h4 className='text-white font-body font-light'>ABOUT</h4>
+          <h4 className='text-white font-body font-light'>CONTACT US</h4>
 
           <div className="menuicon ">
           <FaSearch className='text-white mr-8'  />
@@ -119,7 +113,7 @@ export default function Checkout (){
                     <div className="getproductconatiner ml-12 font-body text-[7px] h-full w-96 bg-[#fafafa] border-4">
                         <div className="theproduct mb-[13rem] flex space-x-7 ml-4 p-2">
                             <div className="image mr-2">
-                            {selectedProductImage && <img src={selectedProductImage} alt='' className='w-16 h-20 object-cover' />}
+                                <img src={bag} alt="" className='w-16 h-20 object-cover' />
 
                             </div>
                             <div className="description ">
@@ -181,7 +175,6 @@ export default function Checkout (){
 
 
 
-        {/* <Products handleproductSelection={handleproductSelection} /> */}
 
 
         </div>
