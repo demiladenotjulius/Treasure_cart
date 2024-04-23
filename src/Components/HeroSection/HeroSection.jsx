@@ -1,4 +1,4 @@
-import React from 'react'
+import React , { useContext } from 'react'
 import backgroundImage from './backgrounddd.png'
 import logo from './LOGO1.png'
 import './herosection.scss'
@@ -6,10 +6,17 @@ import { Link } from 'react-router-dom'
 import { FaSearch } from "react-icons/fa";
 import { IoCartOutline } from "react-icons/io5";
 import { FiUser } from "react-icons/fi";
+import ProductImageContext from '../productContext/productContext';
 
 
 
-function HeroSection () {
+
+function HeroSection ({ selectedProducts = [] }) {
+  const { productImage } = useContext(ProductImageContext);
+  const cartItemCount = Object.values(productImage).reduce((acc, curr) => acc + curr, 0);
+
+
+
   return (
     <div
       className='full-page-bg'
@@ -36,23 +43,29 @@ function HeroSection () {
           }}
         >
           <img src={logo} alt='' id='logo' className='w-10 h-10' />
-          <h4 className='text-white font-light'>PRODUCTS</h4>
-          <h4 className='text-white font-light'>ABOUT</h4>
-          <h4 className='text-white font-light'>CONTACT US</h4>
+          <h4 className='text-white font-body font-light'>PRODUCTS</h4>
+          <h4 className='text-white font-body font-light'>ABOUT</h4>
+          <h4 className='text-white font-body font-light'>CONTACT US</h4>
 
           <div className="menuicon ">
           <FaSearch className='text-white mr-8'  />
           <FiUser className='text-white text-xl mr-8' />
           <Link to="/checkout">
-               <IoCartOutline className='text-white text-xl' />
-            </Link>
+            <IoCartOutline className='text-white text-xl' />
+            {cartItemCount > 0 && (
+                <span className='text-white text-xs bg-red-500 rounded-full px-1'>
+                  {cartItemCount}
+                </span>
+              )}
+          </Link>
+
            </div>
 
         </div>
 
         <div className='bothdiv relative '>
           <div className='textsection ml-40 absolute -top-10 ' id='text'>
-            <h1 class='text-6xl -mb-8 font-bold text-white '>SHOP SAFE.</h1>
+            <h1 className='text-6xl -mb-8 font-bold text-white '>SHOP SAFE.</h1>
             <h1
               className='text-6xl font-bold text-white mb-8 py-1'
               style={{ color: '#ff6b03', fontWeight: 'bold' }}

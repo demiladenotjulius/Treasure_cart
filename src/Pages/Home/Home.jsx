@@ -1,3 +1,4 @@
+import React, { useState } from 'react'
 import HeroSection from '../../Components/HeroSection/HeroSection'
 import Footer from '../../Components/Footer/Footer'
 import Products from '../../Components/Products/Products'
@@ -8,13 +9,16 @@ import HearUs from '../../hear/hear'
 import './home.css'
 
 function Home () {
+  const [selectedProducts, setSelectedProducts] = useState([])
+
   return (
     <>
-      <HeroSection />
+      <HeroSection selectedProducts={selectedProducts} />
       <BestSeller />
       <NewArrival />
       <SpecialOffer />
-      <Products/>
+      <Products  selectedProducts={selectedProducts}
+        setSelectedProducts={setSelectedProducts} />
       <HearUs/>
       <Footer/>
     </>
@@ -22,3 +26,4 @@ function Home () {
 }
 
 export default Home
+

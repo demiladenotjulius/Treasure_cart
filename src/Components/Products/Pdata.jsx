@@ -37,7 +37,7 @@ const Pdata = [
     {
         id: 5,
         image: pc,
-        Name: 'Asus TUF Laptop',
+        Name: 'Asus Laptop',
         desc: 'Up to 8 hours of battery life With Fast Fuel, a 5-minute charge = 2 hours of playback',
         price: '$99.95'
     },
@@ -45,7 +45,7 @@ const Pdata = [
         id: 6,
         image: watch,
         desc: 'Up to 8 hours of battery life With Fast Fuel, a 5-minute charge = 2 hours of playback',
-        Name: 'Couple Wrist Watch',
+        Name: 'Couple   Watch',
         price: '$299.95'
     },
    
